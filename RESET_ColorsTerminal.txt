@@ -1,0 +1,113 @@
+#CLASS 0
+$CLASS = "Tools|Colors|Rooms"
+#EV onRoomEnter {
+#IF ((!%ismember(%roomname(),@ROOMS_Grid)) && (!%ismember(%roomname(),@ROOMS_Misc))) {
+RESET_GridRooms_AddMisc
+}
+} $CLASS
+
+#TR Signposts {^{@ROOMS_Signposts}} {#CW @ColorSignposts} $CLASS
+#TR Junctions {^{@ROOMS_Junctions}} {#CW @ColorJunctions} $CLASS
+#TR Gates {^{@ROOMS_Gates}} {#CW @ColorJunctions} $CLASS
+#TR Roads {^{@ROOMS_Roads}} {#CW @ColorRoads} $CLASS
+
+#TR Grid {^({@ROOMS_Grid|@ROOMS_Misc})~(} {
+$roomName=%1
+#SW (%ismember($roomName,@ROOMS_Signposts)) {#CW @ColorSignposts
+} (%ismember($roomName,@ROOMS_Junctions)) {#CW @ColorJunctions
+} (%ismember($roomName,@ROOMS_Gates)) {#CW @ColorJunctions
+} (%ismember($roomName,@ROOMS_Roads)) {#CW @ColorRoads
+} (%ismember($roomName,@ROOMS_Stairs)) {#CW @ColorStairs
+} (%ismember($roomName,@ROOMS_Courtyards)) {#CW @ColorCourtyards
+} (%ismember($roomName,@ROOMS_Walls)) {#CW @ColorWalls
+} (%ismember($roomName,@ROOMS_RockyGround)) {#CW @ColorRocky
+} (%ismember($roomName,@ROOMS_Mountains)) {#CW @ColorMountains
+} (%ismember($roomName,@ROOMS_IcyMountains)) {#CW @ColorIcyMountains
+} (%ismember($roomName,@ROOMS_LightPlains)) {#CW @ColorLightPlains
+} (%ismember($roomName,@ROOMS_DarkPlains)) {#CW @ColorDarkPlains
+} (%ismember($roomName,@ROOMS_Valleys)) {#CW @ColorValleys
+} (%ismember($roomName,@ROOMS_Hills)) {#CW @ColorHills
+} (%ismember($roomName,@ROOMS_LightForests)) {#CW @ColorLightForests
+} (%ismember($roomName,@ROOMS_DarkForests)) {#CW @ColorDarkForests
+} (%ismember($roomName,@ROOMS_BarrenLands)) {#CW @ColorBarren
+} (%ismember($roomName,@ROOMS_Deserts)) {#CW @ColorDeserts
+} (%ismember($roomName,@ROOMS_Swamps)) {#CW @ColorSwamps
+} (%ismember($roomName,@ROOMS_DarkSwamps)) {#CW @ColorDarkSwamps
+} (%ismember($roomName,@ROOMS_FireyLands)) {#CW @ColorFirey
+} (%ismember($roomName,@ROOMS_Healers)) {#CW @ColorHealers
+} (%ismember($roomName,@ROOMS_Shops_All)) {#CW @ColorShops
+} (%ismember($roomName,@ROOMS_Bars)) {#CW @ColorShops
+} (%ismember($roomName,@ROOMS_Guilds)) {#CW @ColorHalls
+} (%ismember($roomName,@ROOMS_Mail)) {#CW @ColorTownRooms
+} (%ismember($roomName,@ROOMS_Courts)) {#CW @ColorTownRooms
+} (%ismember($roomName,@ROOMS_Stables)) {#CW @ColorTownRooms
+} (%ismember($roomName,@ROOMS_Hitchposts)) {#CW @ColorTownRooms
+} (%ismember($roomName,@ROOMS_Banks)) {#CW @ColorTownRooms
+} (%ismember($roomName,@ROOMS_Halls)) {#CW @ColorHalls
+} (%ismember($roomName,@ROOMS_Hallways)) {#CW @ColorHallways
+} (%ismember($roomName,@ROOMS_Inns)) {#CW @ColorTownRooms
+} (%ismember($roomName,@ROOMS_Innkeepers)) {#CW @ColorTownRooms
+} (%ismember($roomName,@ROOMS_WaterBanks)) {#CW @ColorWaterBanks
+} (%ismember($roomName,@ROOMS_WaterBodies)) {#CW @ColorWater
+} (%ismember($roomName,@ROOMS_Fountains)) {#CW @ColorFountains
+} (%ismember($roomName,@ROOMS_Misc)) {#CW @ColorMisc}
+} $CLASS
+
+$CLASS = "Tools|Colors|Settings"
+#TR Colors_Sight {({@Messages_Sight_All})} {
+#SW (%1="Your eyes ache from the strain of maintaining your enhanced vision.") {
+#SUB {%ansi(high,green)Your %ansi(white)eyes %ansi(high,green)ache %ansi(white)from %ansi(high,green)the %ansi(white)strain %ansi(high,green)of %ansi(white)maintaining %ansi(high,green)your %ansi(white)enhanced %ansi(high,green)vision.}
+} (%1="The effort of staying in tune with the Dark Lord is taking its toll on you.") {
+#SUB {%ansi(high,cyan)The effort %ansi(white)of staying %ansi(high,green)in tune %ansi(white)with the %ansi(high,cyan)Dark Lord %ansi(white)is taking %ansi(high,green)its toll on you.}
+} (%ismember(%1,@Messages_Sight_On)) {
+#CW high,bold,green
+} (%ismember(%1,@Messages_Sight_Off)) {
+#CW green
+}
+} $CLASS
+
+
+#TR Colors_Disguise {{@Messages_Disguise} *} {#CW high,green} $CLASS
+
+//Communications
+#TR Colors_Room_Invite {%1 has invited you to %w room %2.} {#CW high,yellow,blink;#CAP Info} $CLASS
+#TR Colors_InnVisited {^* visits your {"tent|room room"}} {#CW high,white;#CAP INFO} $CLASS
+
+#TR Colors_TellIncoming {^(%w) tells you: *} {#IF (!%ismember(%1,@shopkeepers)) {#VAR LastTeller {%lower(%1)} {} VAR;#VAR LastMSG {%2} {} VAR};#CAP Info;beep2} $CLASS
+
+#TR Colors_TellOutgoing {^You tell %1:*} {#CAP Info;#VAR LastTeller {%lower(%1)} {} VAR;} $CLASS
+
+#TR Colors_Comm {^~^ ~(OOC~) %w:*} {#CAP INFO} $CLASS
+
+#TR Colors_GuildComm {^~[ ({@Guildcomms}) ~] %w:*} {
+#CW high,green
+#CAP INFO
+#VAR MyGuild {%1} {} VAR
+#IF (@MyName && !@{%concat(@MyName,"_Guild")}) {#VAR %concat(@MyName,"_Guild") {@MyGuild} {} VAR}
+} $CLASS
+
+#TR Colors_FactionComm {^~%~% %w:*} {#CW brown;#CAP INFO} $CLASS
+
+#TR Colors_FriendNotification {^~[ %w has {"entered|left"} The Two Towers ~]} {#CW cyan;#CAP INFO} $CLASS
+#TR Colors_trigger {{@Messages_trigger}} {#CW cyan;#CAP INFO} $CLASS
+
+#TR Colors_QuestCompleted {^~[ You have completed a quest: * ~]} {#CW high,yellow;#CAP INFO} $CLASS
+
+#TR Colors_ItemCondition {* in * condition.} {#CW high,white;#CAP INFO} $CLASS
+#TR Colors_NearDeath {near death} {#CW high,red,blink} $CLASS
+#TR Magenta_Average {average} {#CW high,magenta} $CLASS
+#TR Colors_GoodShape {good shape} {#CW high,green} $CLASS
+#TR Colors_PerfectShape {perfect condition} {#SUB high,green} $CLASS
+#TR Colors_Time {{@Messages_Time}} {#CW cyan;#CAP INFO} $CLASS
+
+#TR SpecialMobs {({@MOBS_Special})} {
+#SW (%1="A massive mountain-troll towers over his foes") {
+#SUB {%ansi(bold,red)A massive %ansi(bold,yellow)mountain%ansi(bold,blue)-troll %ansi(bold,red)towers %ansi(yellow)over his %ansi(blue,bold)foes}
+} (%1="A massive mountain troll") {
+#SUB {%ansi(bold,red)A massive %ansi(bold,yellow)mountain%ansi(bold,blue) troll}
+} {
+#CW @ColorSpecialMobs
+}
+} $CLASS
+
+#CLASS 0
