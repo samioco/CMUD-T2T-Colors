@@ -1,0 +1,148 @@
+#CLASS 0
+$CLASS = "Tools|Colors|Settings"
+
+#TR CarackAmarth {Carack-Amarth} {#SUB {%ansi(high,yellow)Carack%ansi(white)-%ansi(high,red)Amarth}} $CLASS
+
+//Item status:
+#TR Wield {wield} {#CW high,red} $CLASS
+#TR Wielded {wielded} {#CW high,red} $CLASS
+#TR InHands {in hands} {#CW yellow} $CLASS
+#TR Mended {mended} {#CW brown} $CLASS
+#TR Worn {worn} {#CW high,blue} $CLASS
+#TR Burning {burning} {#CW high,red} $CLASS
+#TR Glowing {glowing} {#CW high,cyan} $CLASS
+#TR Broken {broken} {#CW brown} $CLASS
+
+//ColoredWords
+#TR Black {black} {#CW purple} $CLASS
+#TR Darkness {{"Darkness surrounds you|darkness|dark"}} {#CW purple} $CLASS
+#TR AlignmentColors {({@Alignments})} {
+$alignment=%lower(%1)
+#SW (%ismember($alignment,%lower(@Alignments_HighEvil))) {#CW red
+} (%ismember($alignment,%lower(@Alignments_Evil))) {#CW purple
+} (%ismember($alignment,%lower(@Alignments_HighMoral))) {#CW high,green
+} (%ismember($alignment,%lower(@Alignments_Moral))) {#CW green
+
+} {#CW grey}
+} $CLASS
+
+#TR LooksAtYou {%1 looks at you.} {#CW high,red,blink} $CLASS
+
+#TR Blue {blue} {#CW high,blue} $CLASS
+#TR Battlecry {battlecry} {#CW high,blue} $CLASS
+#TR DarkRing {An ominous dark ring} {#CW high,blue} $CLASS
+#TR DarkNecklace {A simple-looking necklace} {#CW high,blue} $CLASS
+#TR CobaltRing {A cobalt ring} {#CW high,blue} $CLASS
+#TR CrimsonCloak {A crimson cloak} {#CW high,blue} $CLASS
+#TR OnyxPendant {An onyx pendant} {#CW high,blue} $CLASS
+
+
+#TR Brown {brown} {#CW brown} $CLASS
+#TR Bronze {bronze} {#CW brown} $CLASS
+
+#TR Riding {{"riding|ridden by you|being led by you"}} {#CW cyan} $CLASS
+#TR WagonPulled {being pulled by your mount} {#CW cyan} $CLASS
+#TR Cyan {cyan} {#CW high,cyan} $CLASS
+#TR Crystal {{"crystalline|crystal"}} {#CW high,cyan} $CLASS
+#TR Silver {silver} {#CW high,cyan} $CLASS
+#TR Fantastic {fantastic} {#CW high,cyan} $CLASS
+#TR Inflict {inflict{"|s|ing"}} {#CW high,cyan} $CLASS
+#TR Full {full} {#CW high,cyan} $CLASS
+#TR Mixie {A mixed potion} {#CW high,cyan} $CLASS
+#TR GripWeapon {You grip your weapon with both hands} {#CW high,cyan} $CLASS
+#TR Regain_Consciousness {You regain consciousness} {#CW high,cyan} $CLASS
+#TR Uptime {The Two Towers has been up for*} {#CW high,cyan} $CLASS
+
+#TR ThrownFromMount {You are thrown from the mount.} {#CW high,blink,cyan} $CLASS
+#TR NeedTwoHands {You need two free hands to wield} {#CW high,blink,cyan} $CLASS
+#TR Reconnected {has reconnected.} {#CW high,blink,cyan} $CLASS
+
+#TR Green {Green} {#CW high,green} $CLASS
+#TR Jade {jade} {#CW high,green} $CLASS
+#TR HealingItems {{"flask|An elf-skin bota|A silver flask"}} {#CW green,high} $CLASS
+#TR GoodShape {{"good|perfect"} shape} {#CW high,green} $CLASS
+#TR EPMushroom {{"This strange, violet-gray mushroom looks pretty suspicious.  It"}} {#CW green} $CLASS
+#TR EPItems {{"A small black-bladed dagger|A wickedly curved knife"}} {#CW green} $CLASS
+#TR RangerRing {A small greenish ring} {#CW green} $CLASS
+#TR FocusSkill {You start focusing on your * skill.} {#CW green} $CLASS
+
+#TR Grey {grey} {#CW grey} $CLASS
+#TR Steel {steel} {#CW grey} $CLASS
+
+#TR Magenta {purple} {#CW purple} $CLASS
+#TR Magenta {magenta} {#CW high,purple} $CLASS
+#TR Pink {pink} {#CW high,purple} $CLASS
+
+#TR Someone {Someone} {#CW high,red} $CLASS
+#TR Crimson {crimson} {#CW high,red} $CLASS
+#TR HasDied {has died.} {#CW high,red} $CLASS
+#TR MountNearDeath {That poor mount is near death!} {#CW high,red} $CLASS
+#TR DLSG {{"doesn't look so great|doesn't look so good|don't look so great|don't look so good"}} {#CW high,red} $CLASS
+#TR Encumbered {{"heavily|severely"} encumbered} {#CW high,red} $CLASS
+#TR StartSpell {starts casting a spell.} {#CW high,red} $CLASS
+#TR ManyTailedWhip {many-tailed whip} {#CW high,red} $CLASS
+
+#TR RedWords {{"deathmask|death|blood|Barad-dur"}} {#CW red} $CLASS
+#TR NearDeath {near death} {#CW blink,red} $CLASS
+#TR Poisoned {Poison seeps through your veins!  The world grows dim around you...} {#CW high,bold,red} $CLASS
+#TR WarHorn_Off {Your inspiration has disappeared} {#CW high,blink,red} $CLASS
+#TR AlreadyPoisoned {That weapon is already poisoned} {#CW high,blink,red} $CLASS
+#TR PoisonWeapon {You wipe the poison onto the weapon, ensuring that the poison} {#CW high,blink,red} $CLASS
+#TR ClickingSound {You hear a clicking sound} {#CW high,blink,red} $CLASS
+#TR DoorLock {{"You hear a clicking sound from|unlock|unlocks|lock|locks"} the * door.} {#CW high,red,blink} $CLASS
+
+//Yellow
+#TR Yellow {yellow} {#CW high,yellow} $CLASS
+#TR Massacre {massacre{"|s"}} {#CW high,yellow} $CLASS
+#TR LitheGrace {lithe grace} {#CW high,yellow} $CLASS
+#TR Skewer {skewer{"|s"}} {#CW high,yellow} $CLASS
+#TR Golden {golden} {#CW high,yellow} $CLASS
+#TR TwilightDagger {{"twilight dagger|Twilight dagger"}} {#CW high,yellow} $CLASS
+#TR GoldenAmulet {golden amulet} {#CW high,yellow} $CLASS
+
+//White
+#TR White {white} {#CW high,white} $CLASS
+#TR Mithril {{"mithril-shod|mithril"}} {#CW high,white} $CLASS
+#TR Steel {steel} {#CW high,white} $CLASS
+#TR Exquisite {exquisite} {#CW high,white} $CLASS
+#TR Pearl {pearl} {#CW high,white} $CLASS
+#TR Enters {enters} {#CW high,white} $CLASS
+#TR ColoredRaces {{@Races}} {#CW high,white} $CLASS
+
+//Special Items
+#TR GreatElvenWarBow {great elven war-bow} {#CW high,white} $CLASS
+#TR AncientSilverBlade {ancient silver blade} {#CW high,white} $CLASS
+#TR DoubleBladedStaff {{"double-bladed staff|bladed staff"}} {#CW high,white} $CLASS
+#TR OrcCourierPack {Orc courier pack} {#CW high,white} $CLASS
+#TR WavyBladedSword {wavy bladed sword} {#CW high,white} $CLASS
+#TR CeleirMiluiant {Celeir Miluiant} {#CW high,white} $CLASS
+#TR Miluiant {Miluiant} {#CW high,white} $CLASS
+#TR RadiantSet {{"pair of |"}radiant steel {"gauntlets|pants|helm"}} {#CW high,white} $CLASS
+#TR RadiantShirt {radiant mithril shirt} {#CW high,white} $CLASS
+#TR MELS {magnificent engraved longsword} {#CW high,white} $CLASS
+#TR WickedFlail {wicked looking flail} {#CW high,white} $CLASS
+#TR StrangeRunedStaff {strange runed staff} {#CW high,white} $CLASS
+#TR BoneSword {{"long haradrim bone sword|bone sword"}} {#CW high,white} $CLASS
+#TR ResplendentMithrilBuckler {resplendent mithril buckler} {#CW high,white} $CLASS
+#TR MithrilMail {beautiful set of mithril mail} {#CW high,white} $CLASS
+#TR DeadlyDarkSpear {deadly dark spear} {#CW high,white} $CLASS
+#TR ElegantSteelTippedSpear {elegant steel-tipped spear} {#CW high,white} $CLASS
+#TR OrnamentedWatch {ornamented watch} {#CW high,white} $CLASS
+#TR DarkScimitar {dark scimitar} {#CW high,white} $CLASS
+#TR IDLS {intimidating dark longsword} {#CW high,white} $CLASS
+#TR DAKS {Dol Amroth knight's sword} {#CW high,white} $CLASS
+#TR SwordOfBerserking {Sword of Berserking} {#CW high,white} $CLASS
+#TR CaptainsCutlass {captain's cutlass} {#CW high,white} $CLASS
+#TR LustrousLongsword {lustrous longsword} {#CW high,white} $CLASS
+#TR SuperbChainmailSet {set of chainmail of superb quality} {#CW high,white} $CLASS
+#TR Cleaver {big razor-sharp meat cleaver} {#CW high,white} $CLASS
+#TR ScoredRing {gold scored ring} {#CW high,white} $CLASS
+#TR LightRing {smoothly polished White ring} {#CW high,white} $CLASS
+#TR HugeBrassShield {huge brass shield} {#CW high,white} $CLASS
+#TR GleamingRunedBlade {gleaming runed blade} {#CW high,white} $CLASS
+#TR ShimmeringRing {shimmering silver-quartz ring} {#CW high,white} $CLASS
+#TR HoodedChainmailShirt {hooded chainmail shirt} {#CW high,white} $CLASS
+#TR VialOfRejuvenation {A vial of rejuvenation} {#CW high,white} $CLASS
+#TR SuitOfChainLinkMail {suit of chain link mail} {#CW high,white} $CLASS
+
+#CLASS 0
