@@ -1,10 +1,10 @@
-#CLASS 0
+//RESET_ColorsTerminal#CLASS 0#AL RESET_ColorsTerminal {#CLASS 0
 $CLASS = "Tools|Colors|Rooms"
 #EV onRoomEnter {
 #IF ((!%ismember(%roomname(),@ROOMS_Grid)) && (!%ismember(%roomname(),@ROOMS_Misc))) {
-RESET_GridRooms_AddMisc
+RESET_GridRoomsAddMisc
 }
-} $CLASS
+} $CLASS 
 
 #TR Signposts {^{@ROOMS_Signposts}} {#CW @ColorSignposts} $CLASS
 #TR Junctions {^{@ROOMS_Junctions}} {#CW @ColorJunctions} $CLASS
@@ -110,4 +110,4 @@ $CLASS = "Tools|Colors|Settings"
 }
 } $CLASS
 
-#CLASS 0
+#CLASS 0} _Colors#CLASS 0

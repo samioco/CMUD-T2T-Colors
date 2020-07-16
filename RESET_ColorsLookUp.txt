@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_ColorsLookUp#CLASS 0#AL RESET_ColorsLookUp {#CLASS 0
 #VAR ColorJunctions {"#CC6600"} {} VAR
 #VAR ColorSignposts {"#CC6600"} {} VAR
 #VAR ColorBridges {"#CC6600"} {} VAR
@@ -39,4 +39,4 @@
 
 #VAR ColorSpecialMobs {"#FFFFFF"} {} VAR
 
-#CLASS 0
+#CLASS 0} _Colors#CLASS 0

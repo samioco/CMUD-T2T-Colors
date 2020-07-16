@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_ColorsSpecialItems#CLASS 0#AL RESET_ColorsSpecialItems {#CLASS 0
 $CLASS = "Tools|Colors|Settings"
 
 #TR GEAR_SpecialHints {({@Gear_Special})} {
@@ -30,4 +30,4 @@ $key=%2;$buffer="";$item_hint=""
   }
 }
 } $CLASS
-#CLASS 0
+#CLASS 0} _Colors#CLASS 0

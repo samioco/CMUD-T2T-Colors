@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_ColorsWords#CLASS 0#AL RESET_ColorsWords {#CLASS 0
 $CLASS = "Tools|Colors|Settings"
 
 #TR CarackAmarth {Carack-Amarth} {#SUB {%ansi(high,yellow)Carack%ansi(white)-%ansi(high,red)Amarth}} $CLASS
@@ -14,8 +14,8 @@ $CLASS = "Tools|Colors|Settings"
 #TR Broken {broken} {#CW brown} $CLASS
 
 //ColoredWords
-#TR Black {black} {#CW purple} $CLASS
-#TR Darkness {{"Darkness surrounds you|darkness|dark"}} {#CW purple} $CLASS
+#TR Black {black} {#CW purple} $CLASS 
+#TR Darkness {{"Darkness surrounds you|darkness|dark"}} {#CW purple} $CLASS 
 #TR AlignmentColors {({@Alignments})} {
 $alignment=%lower(%1)
 #SW (%ismember($alignment,%lower(@Alignments_HighEvil))) {#CW red
@@ -146,3 +146,4 @@ $alignment=%lower(%1)
 #TR SuitOfChainLinkMail {suit of chain link mail} {#CW high,white} $CLASS
 
 #CLASS 0
+} _Colors#CLASS 0

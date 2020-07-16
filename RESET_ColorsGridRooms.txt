@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_ColorsGridRooms#CLASS 0#AL RESET_ColorsGridRooms {#CLASS 0
 $CLASS ="Tools|Colors|EXE"
 
 #AL Update_RoomName {
@@ -54,7 +54,7 @@ $query=""
   $query=%concat("[ZoneID] = ",~",%zonenum(),~"," AND [Name] = ",~",$rooms,~"," COLLATE NOCASE")
   #CALL %mapfilter($query)
   #ECHO Query: $query, #Rooms: %numrooms()
-  #IF (%numrooms()<5000) {
+  #IF (%numrooms()<5000) {   
     #LOOP %numrooms() {
       #ECHO Updating Room: %roomnum(%mapvnum(%i)), %roomname(%mapvnum(%i)), Color: $color, Cost: $cost
       #CALL %roomcol(%mapvnum(%i),$color)
@@ -137,7 +137,7 @@ Update_Room "ROOMS_DarkSwamps" @ColorDarkSwamps "3"
 
 #AL Update_BarrenLands {
 Update_Room "ROOMS_BarrenLands" @ColorBarren "2"
-} $CLASS
+} $CLASS 
 
 #AL Update_Barren {
 Update_BarrenLands
@@ -166,7 +166,7 @@ Update_Room "ROOMS_LightPlains" @ColorLightPlains "1"
 
 #AL Update_DarkPlains {
 Update_Room "ROOMS_DarkPlains" @ColorDarkPlains "1"
-} $CLASS
+} $CLASS 
 
 #AL Update_Hills {
 Update_Room "ROOMS_Hills" @ColorHills "2"
@@ -225,4 +225,4 @@ Update_WaterBodies
 
 } $CLASS
 
-#CLASS 0
+#CLASS 0} _Colors#CLASS 0

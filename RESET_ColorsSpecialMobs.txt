@@ -1,4 +1,4 @@
-#CLASS 0
+//RESET_ColorsSpecialMobs#CLASS 0#AL RESET_ColorsSpecialMobs {#CLASS 0
 #VAR MOBS_Special {} {} VAR
 #ADDI MOBS_Special "A black lizard"
 #ADDI MOBS_Special "A chubby orc wall guard"
@@ -80,4 +80,4 @@
 #ADDI MOBS_Special "A massive mountain-troll towers over his foes"
 #ADDI MOBS_Special "A massive mountain troll"
 
-#CLASS 0
+#CLASS 0} _Colors#CLASS 0
