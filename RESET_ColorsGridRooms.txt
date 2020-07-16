@@ -1,0 +1,228 @@
+#CLASS 0
+$CLASS ="Tools|Colors|EXE"
+
+#AL Update_RoomName {
+//Syntax: RoomName_Change "Old room name" "New room name"
+$oldname=%1
+$newname=%2
+#CALL %maplocked(0)
+#WAIT 500
+#CALL %mapfilter("")
+$query=%concat("[ZoneID] = ",~",%zonenum(),~"," AND [NAME] = ",~",%lower($oldname),~"," COLLATE NOCASE")
+#CALL %mapfilter($query)
+#ECHO Query: $query
+#ECHO Num of Rooms: %numrooms()
+#LOOP %numrooms {
+  #IF (%roomname(%mapvnum(%i))=$oldname) {
+    #CALL %roomname(%mapvnum(%i),$newname)
+  }
+}
+#CALL %mapfilter("")
+} $CLASS
+
+
+#AL Update_Room {
+//param1: variable name list of roomnames, or single room name
+//param2: colorcode
+//param3 room cost
+$rooms=%1
+$color=%2
+$cost=%3
+$query=""
+#CALL %maplocked(0)
+#WAIT 500
+#CR
+#ECHO Update Started for: $rooms
+#ECHO Color: $color, Cost: $cost
+#CR
+#CALL %mapfilter("")
+#SW (@{$rooms}) {
+  #FORALL @{$rooms} {
+    $query=%concat("[ZoneID] = ",~",%zonenum(),~"," AND [Name] = ",~",%i,~"," COLLATE NOCASE")
+    #CALL %mapfilter($query)
+    #ECHO Query: $query, #Rooms: %numrooms()
+    #IF (%numrooms()<10000) {
+      #LOOP %numrooms() {
+        #ECHO Updating Room: %roomnum(%mapvnum(%j)), %roomname(%mapvnum(%j)), Color: $color, Cost: $cost
+        #CALL %roomcol(%mapvnum(%j),$color)
+        #CALL %roomcost(%mapvnum(%j),$cost)
+      }
+    } {#ECHO Too many rooms (~>5000) in query! Skipping...
+    }
+  }
+} ($rooms) {
+  $query=%concat("[ZoneID] = ",~",%zonenum(),~"," AND [Name] = ",~",$rooms,~"," COLLATE NOCASE")
+  #CALL %mapfilter($query)
+  #ECHO Query: $query, #Rooms: %numrooms()
+  #IF (%numrooms()<5000) {
+    #LOOP %numrooms() {
+      #ECHO Updating Room: %roomnum(%mapvnum(%i)), %roomname(%mapvnum(%i)), Color: $color, Cost: $cost
+      #CALL %roomcol(%mapvnum(%i),$color)
+      #CALL %roomcost(%mapvnum(%i),$cost)
+    }
+  } {#ECHO Too many rooms (~>5000) in query! Skipping...
+  }
+}
+#CALL %mapfilter("")
+#CR
+#ECHO Update Completed for: $rooms
+#CR
+#CALL %maplocked(1)
+} $CLASS
+
+#AL Update_Signposts {
+Update_Room "ROOMS_Signposts" @ColorJunctions "0"
+} $CLASS
+
+#VAR ROOMS_MoriaTrapRooms {} {} VAR
+#LOOP 1,14 {#ADDI ROOMS_MoriaTrapRooms %concat("MoriaTrapRoom",%i)}
+
+#AL Update_Roads {
+Update_Room "ROOMS_Roads" @ColorRoads "0"
+//Orange Roads: 39423
+//Light Brown Roads: 32896
+#CALL %maplocked(0)
+#WAIT 500
+#IF (%pos("Moria",%zonename())) {
+  #FORALL @ROOMS_MoriaTrapRooms {
+    #CALL %roomcol(%i,5113841)
+    #CALL %roomcost(%i,100)
+  }
+}
+#CR
+#ECHO Update_Roads Completed!
+Update_Bridges
+Update_Junctions
+Update_Stairs
+Update_Signposts
+#CALL %maplocked(1)
+} $CLASS
+
+#AL Update_Bridges {
+Update_Room "ROOMS_Bridges" @ColorBridges "0"
+} $CLASS
+
+#AL Update_Gates {
+Update_Room "ROOMS_Gates" @ColorJunctions "0"
+} $CLASS
+
+#AL Update_Junctions {
+Update_Room "ROOMS_Junctions" @ColorJunctions "0"
+} $CLASS
+
+#AL Update_Stairs {
+Update_Room "ROOMS_Stairs" @ColorStairs "0"
+} $CLASS
+
+#AL Update_Courtyards {
+Update_Room "ROOMS_Courtyards" @ColorCourtyards "0"
+} $CLASS
+
+#AL Update_FireyLands {
+Update_Room "ROOMS_FireyLands" @ColorFirey "2"
+} $CLASS
+
+#AL Update_Deserts {
+//Update_Room "ROOMS_Deserts" "52479" "5"
+Update_Room "ROOMS_Deserts" @ColorDeserts "5"
+} $CLASS
+
+#AL Update_Swamps {
+Update_Room "ROOMS_Swamps" @ColorSwamps "3"
+} $CLASS
+
+#AL Update_DarkSwamps {
+Update_Room "ROOMS_DarkSwamps" @ColorDarkSwamps "3"
+} $CLASS
+
+#AL Update_BarrenLands {
+Update_Room "ROOMS_BarrenLands" @ColorBarren "2"
+} $CLASS
+
+#AL Update_Barren {
+Update_BarrenLands
+Update_FireyLands
+Update_Swamps
+Update_DarkSwamps
+Update_Deserts
+} $CLASS
+
+#AL Update_DarkForests {
+Update_Room "ROOMS_DarkForests" @ColorDarKForests "3"
+} $CLASS
+
+#AL Update_Forests {
+Update_Room "ROOMS_LightForests" @ColorLightForests "2"
+Update_DarkForests
+} $CLASS
+
+#AL Update_Valleys {
+Update_Room "ROOMS_Valleys" @ColorValleys "1"
+} $CLASS
+
+#AL Update_LightPlains {
+Update_Room "ROOMS_LightPlains" @ColorLightPlains "1"
+} $CLASS
+
+#AL Update_DarkPlains {
+Update_Room "ROOMS_DarkPlains" @ColorDarkPlains "1"
+} $CLASS
+
+#AL Update_Hills {
+Update_Room "ROOMS_Hills" @ColorHills "2"
+} $CLASS
+
+#AL Update_Plains {
+Update_Room "ROOMS_DarkPlains" @ColorDarkPlains "1"
+Update_LightPlains
+Update_Valleys
+Update_Hills
+} $CLASS
+
+
+
+#AL Update_RockyGround {
+Update_Room "ROOMS_RockyGround" @ColorRocky "2"
+} $CLASS
+
+#AL Update_IcyMountains {
+Update_Room "Rooms_IcyMountains" @ColorIcyMountains "2"
+} $CLASS
+
+#AL Update_Mountains {
+Update_Room "ROOMS_Mountains" @ColorMountains "2"
+} $CLASS
+
+#AL Update_Walls {
+Update_Room "ROOMS_Walls" @ColorWalls "0"
+} $CLASS
+
+
+#AL Update_Rocky {
+Update_IcyMountains
+Update_Mountains
+Update_RockyGround
+Update_Walls
+} $CLASS
+
+
+#AL Update_Fountains {
+Update_Room "ROOMS_Fountains" @ColorWaterBanks "0"
+} $CLASS
+
+#AL Update_WaterBanks {
+Update_Room "ROOMS_WaterBanks" @ColorWaterBanks "1"
+} $CLASS
+
+#AL Update_WaterBodies {
+Update_Room "ROOMS_WaterBodies" @ColorWater "5"
+} $CLASS
+
+#AL Update_Water {
+Update_Fountains
+Update_WaterBanks
+Update_WaterBodies
+
+} $CLASS
+
+#CLASS 0
