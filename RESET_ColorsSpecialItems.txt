@@ -1,0 +1,33 @@
+#CLASS 0
+$CLASS = "Tools|Colors|Settings"
+
+#TR GEAR_SpecialHints {({@Gear_Special})} {
+$item=%1;$buffer="";$item_hint=""
+#FORALL @Gear_SpecialHints {
+  #IF ($item = %item(%i,1)) {
+    $item_hint=%item(%i,2)
+    #IF (%len($item) < 50) {
+      #LOOP 40-%len(%concat($item,$buffer)) {$buffer=%concat($buffer," ")}
+      #LOOP 50-%len(%concat($item,$buffer)) {$buffer=%concat($buffer,"- ")}
+    } {$buffer=" - "}
+    #SUB {$item %ansi(white)$buffer%ansi(green)$item_hint%ansi(default)%ansi(white)}
+    #BREAK
+  }
+}
+} $CLASS
+
+#TR GEAR_KeyHints {^({" |~*"})({@Gear_Keys})({ (%d)| ~[%d~]|})} {
+$key=%2;$buffer="";$item_hint=""
+#FORALL @Gear_KeyHints {
+  #IF ($key=%item(%i,1)) {
+    $item_hint=%item(%i,2)
+    #IF (%len($key) < 50) {
+    #LOOP 40-%len(%concat($key,$buffer)) {$buffer=%concat($buffer," ")}
+    #LOOP 50-%len(%concat($key,$buffer)) {$buffer=%concat($buffer,"- ")}
+    } {$buffer=" - "}
+    #SUB {%1$key %3%ansi(white)$buffer%ansi(high,blue)Key: $item_hint%ansi(default)}
+    #BREAK
+  }
+}
+} $CLASS
+#CLASS 0
