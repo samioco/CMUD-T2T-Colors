@@ -1,0 +1,42 @@
+#CLASS 0
+#VAR ColorJunctions {"#CC6600"} {} VAR
+#VAR ColorSignposts {"#CC6600"} {} VAR
+#VAR ColorBridges {"#CC6600"} {} VAR
+//#VAR ColorRoads {"#FF9933"} {} VAR
+#VAR ColorRoads {"#FF9900"} {} VAR
+#VAR ColorStairs {"#B8B894"} {} VAR
+
+#VAR ColorLightPlains {"#66FF33"} {} VAR
+#VAR ColorDarkPlains {"#99CC00"} {} VAR
+#VAR ColorHills {"#669900"} {} VAR
+#VAR ColorValleys {"#55A8A8"} {} VAR
+
+#VAR ColorLightForests {"#339966"} {""} VAR
+#VAR ColorDarkForests {"#006600"} {} VAR
+
+#VAR ColorMountains {"#52527A"} {} VAR
+#VAR ColorIcyMountains {"#6699FF"} {} VAR
+#VAR ColorRocky {"#8585AD"} {} VAR
+
+#VAR ColorBarren {"#808000"} {} VAR
+#VAR ColorDeserts {"#FFD000"} {} VAR
+#VAR ColorFirey {"#8800000"} {} VAR
+#VAR ColorSwamps {"#FF9999"} {} VAR
+#VAR ColorDarkSwamps {"#993300"} {} VAR
+
+#VAR ColorWater {"#0055FF"} {} VAR
+#VAR ColorWaterBanks {"#6699FF"} {} VAR
+#VAR ColorFountains {"#6699FF"} {} VAR
+
+#VAR ColorHealers {"#00FF00"} {} VAR
+#VAR ColorShops {"#009933"} {} VAR
+#VAR ColorHalls {"#ADAD85"} {} VAR
+#VAR ColorHallways {"#ADAD85"} {} VAR
+#VAR ColorCourtyards {"#999966"} {} VAR
+#VAR ColorWalls {"#993366"} {} VAR
+#VAR ColorTownRooms {"#FFFF66"} {} VAR
+#VAR ColorMisc {"#9494B8"} {} VAR
+
+#VAR ColorSpecialMobs {"#FFFFFF"} {} VAR
+
+#CLASS 0
