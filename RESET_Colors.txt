@@ -1,8 +1,8 @@
 #CLASS 0
-RESET_Colors_SpecialItems
-RESET_Colors_SpecialMobs
-RESET_Colors_ColoredWords
-RESET_Colors_Terminal
-RESET_Colors_GridRooms
-RESET_Colors_LookUp
+RESET_ColorsSpecialItems
+RESET_ColorsSpecialMobs
+RESET_ColorsWords
+RESET_ColorsTerminal
+RESET_ColorsGridRooms
+RESET_ColorsLookUp
 #CLASS 0
